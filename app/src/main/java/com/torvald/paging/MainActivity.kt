@@ -12,6 +12,7 @@ import com.torvald.paging.databinding.ActivityMainBinding
 import com.torvald.paging.main.CharacterAdapter
 import com.torvald.paging.main.CharacterViewModel
 import com.torvald.paging.utils.loger
+import com.torvald.paging.utils.showMessage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -45,6 +46,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRV() {
         adapterCharacter = CharacterAdapter()
+        adapterCharacter.onItemTexeViewClickListener = {
+            showMessage("click  pro  ")
+
+        }
+
+        adapterCharacter.onItemClickListener = {
+            showMessage("click  base ")
+        }
+
+
         binding.recyclerView.apply {
             adapter = adapterCharacter
 
