@@ -1,5 +1,6 @@
 package com.torvald.paging.main
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.torvald.paging.model.RickMorty
@@ -20,7 +21,6 @@ class RickyMortyPagingSource(
             val responseData = mutableListOf<RickMorty>()// общие данные
             val data = response.body()?.results ?: emptyList()// партия данных
             responseData.addAll(data)// добовляем партию данных в общий лист
-
             LoadResult.Page(
                 data = responseData,
                 prevKey = if (currentPage == 1) null else -1,

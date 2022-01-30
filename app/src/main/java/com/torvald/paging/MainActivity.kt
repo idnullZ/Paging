@@ -38,9 +38,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadData() {
         lifecycleScope.launch {
             vm.listData.collect{it ->
-
                 adapterCharacter.submitData(it)
-
             }
         }
     }
